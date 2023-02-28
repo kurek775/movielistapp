@@ -2,4 +2,6 @@
 
 /server/node-modules
 
+node_modules/*
+
 /server/.env
