@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 import User from "./models/User";
 import Filmlist from "./models/Filmlist";
-import { config } from "dotenv";
+import { config } from 'dotenv';
 import { getFilmListsController } from "./controllers/getFilmListsController";
 
 import cors from "cors";
