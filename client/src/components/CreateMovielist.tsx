@@ -23,7 +23,8 @@ const CreateMovielist: React.FC<CreateMovielistProps> = () => {
             },
             body: JSON.stringify({
                 name,
-                owner: user.iat,
+                owner: user.id,
+                ownerName: user.name,
                 movies: [],
                 thread: []
             }),

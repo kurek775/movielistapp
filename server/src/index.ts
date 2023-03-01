@@ -24,6 +24,8 @@ app.use(cors());
 
 app.post("/api/login", loginUserController);
 
+app.put("/api/commentfilmlist", addCommentController);
+
 app.post("/api/register", createUserController);
 
 app.post("/api/filmlists", getFilmListController);

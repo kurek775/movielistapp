@@ -7,6 +7,7 @@ export async function loginUserController(req: Request, res: Response) {
 		email: req.body.email,
 	})
 
+
 	if (!user) {
 		return { status: 'error', error: 'Invalid login' }
 	}
@@ -21,6 +22,7 @@ export async function loginUserController(req: Request, res: Response) {
 			{
 				name: user.name,
 				email: user.email,
+				id: user._id
 			},
 			'secret123'
 		)

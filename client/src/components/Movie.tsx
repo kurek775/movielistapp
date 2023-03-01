@@ -5,7 +5,9 @@ interface MovieProps {
     id: number;
     title: string;
     img: string;
-    genres: any
+    genres: any;
+    url: string;
+
 }
 
 const Movie: React.FC<MovieProps> = (MovieProps) => {
@@ -26,7 +28,7 @@ const Movie: React.FC<MovieProps> = (MovieProps) => {
             <Modal.Header closeButton>
                 <Modal.Title>Do kterého filmlistu chcete film přidat ? </Modal.Title>
             </Modal.Header>
-            <Modal.Body><MyMovielists movieId={MovieProps.id}></MyMovielists></Modal.Body>
+            <Modal.Body><MyMovielists movieName={MovieProps.title} moviePoster={MovieProps.img} movieURL={MovieProps.url} movieId={MovieProps.id}></MyMovielists></Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Zrušit

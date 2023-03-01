@@ -16,7 +16,8 @@ const Home: React.FC<HomeProps> = () => {
         setUser(jwt_decode(token));
     }, []);
 
-  
+  console.log(user);
+
 
     return (<>
     

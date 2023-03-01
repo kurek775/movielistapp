@@ -2,6 +2,9 @@ import { Button, Card, Modal } from "react-bootstrap";
 interface MovielistProps {
     name: string;
     movieId: number;
+    movieName: string;
+    movieURL: string;
+    moviePoster: string;
     listId: number;
     size: number;
 }
@@ -17,7 +20,14 @@ const Movielist: React.FC<MovielistProps> = (MovielistProps) => {
             },
             body: JSON.stringify({
 
-                movie: MovielistProps.movieId,
+                movie: {
+                    id:MovielistProps.movieId,
+                    name:MovielistProps.movieName,
+                    url:MovielistProps.movieURL,
+                    img:MovielistProps.moviePoster
+                    
+                
+                },
                 id: MovielistProps.listId
 
             }),

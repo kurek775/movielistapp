@@ -8,3 +8,13 @@ strong{
     width: 300px;
     margin: 8px;
 }
+.comment-text{
+    background: white;
+    padding: 8px;
+    border-radius: 9px;
+    border: 1px solid;
+    margin-bottom: 5px;
+}
+.comment-author{
+    text-align: center;
+}

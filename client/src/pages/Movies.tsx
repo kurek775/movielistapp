@@ -27,8 +27,8 @@ const Movies: React.FC<MoviesProps> = () => {
     } 
     return ( <div className="d-flex flex-wrap justify-content-center">
   
-  {movies != undefined ? movies.map((item: { id: number; title: string; img: string; genres: any }) =>
-          <Movie id={item.id} title={item.title} img={item.img} genres={item.genres}></Movie>
+  {movies != undefined ? movies.map((item: { id: number; title: string; img: string; genres: any; url: string }) =>
+          <Movie url={item.url} id={item.id} title={item.title} img={item.img} genres={item.genres}></Movie>
 
         ) : null
         }

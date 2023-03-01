@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 const FilmListSchema = new Schema({
    name: String,
-   owner: Number,
+   owner: String,
+   ownerName: String,
    movies: Array,
    thread: Array
 });

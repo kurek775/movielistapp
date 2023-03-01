@@ -4,7 +4,10 @@ import Movielist from "./Movielist";
 
 
 interface MyMovielistsProps {
-    movieId: number
+    movieId: number,
+    movieName: string,
+    moviePoster: string,
+    movieURL: string
 }
 
 const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
@@ -21,7 +24,7 @@ const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                id:  user.iat
+                id:  user.id
             }),
         })
 
@@ -39,7 +42,7 @@ const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
     return (
         <div>
             {userlist != undefined ? userlist.map((list: { name: string , _id: number, movies: any}) =>             
-                <Movielist size={list.movies.length} name={list.name} movieId={MyMovielistsProps.movieId} listId={list._id} ></Movielist>
+                <Movielist movieName={MyMovielistsProps.movieName} moviePoster={MyMovielistsProps.moviePoster} movieURL={MyMovielistsProps.movieURL} size={list.movies.length} name={list.name} movieId={MyMovielistsProps.movieId} listId={list._id} ></Movielist>
             ) : null}
         </div>);
 }

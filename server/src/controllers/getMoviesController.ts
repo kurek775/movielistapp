@@ -6,7 +6,7 @@ export async function getMoviesController(req: Request, res: Response) {
 for (let num: any = 1; num < 30;num++){
     try {
         const mov = await csfd.movie(num);
-        dat.push({ title: mov.title, id: mov.id, img: mov.poster, genres: mov.genres });
+        dat.push({ title: mov.title, id: mov.id, img: mov.poster, genres: mov.genres, url: mov.url });
         console.log(dat)
       } catch (error) {
         console.error(error);
