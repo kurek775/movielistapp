@@ -6,6 +6,9 @@ interface AllMovielistsProps {
 }
 
 const AllMovielists: React.FC<AllMovielistsProps> = () => {
+
+    // view all movielists saved in our db + you can comment them
+    // TODO : add like, remove my comment
     const [id, setId]: any = useState();
     const [comment, setComment] = useState('');
     const [list, setList]: any = useState();

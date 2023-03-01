@@ -7,6 +7,8 @@ interface CreateMovielistProps {
 }
 
 const CreateMovielist: React.FC<CreateMovielistProps> = () => {
+
+    // create your own movie list
     const [name, setName] = useState('');
     const [loading, setLoading] = useState(false);
     const {user, setUser}: any = useContext(AuthContext);

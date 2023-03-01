@@ -12,6 +12,9 @@ interface MovieProps {
 
 const Movie: React.FC<MovieProps> = (MovieProps) => {
 
+    // just component for movie with modal that will show my movie lists to 
+    // which you can add the movie to
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

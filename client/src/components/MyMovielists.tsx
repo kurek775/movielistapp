@@ -17,6 +17,7 @@ const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
 
     async function getMyMovielists() {
        
+        // component that shows only my own film lists
         
         const response = await fetch('http://localhost:5000/api/filmlists', {
             method: 'POST',

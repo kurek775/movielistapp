@@ -10,6 +10,8 @@ interface MovielistProps {
 }
 
 const Movielist: React.FC<MovielistProps> = (MovielistProps) => {
+
+    // movielist that is viewed in modal that is in Movie.tsx
     async function handleClick() {
 
 
