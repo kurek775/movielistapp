@@ -9,13 +9,6 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
-        
-          cd ..
-          cd ..
-        
-          cd movielistapp
-          cd movielistapp
-              echo "Contents of current directory:"
           ls
           cd client
           npm install
