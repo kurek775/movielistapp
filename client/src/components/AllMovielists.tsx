@@ -53,7 +53,6 @@ const AllMovielists: React.FC<AllMovielistsProps> = () => {
         setList(data)
 
     }
-
     async function handleRating(event: React.MouseEvent, id: Number, val: Boolean) {
         event.preventDefault()
 
