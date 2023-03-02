@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  install-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Dependencies
+        run: |
+          cd server
+          npm i
+          npm run dev
