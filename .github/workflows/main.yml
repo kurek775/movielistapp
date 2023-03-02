@@ -10,5 +10,16 @@ jobs:
       - name: Install Dependencies
         run: |
           ls
-          cd client
-          npm install
+          cd ..
+           ls
+          cd ..
+           ls
+          cd ..
+           ls
+          cd ..
+           ls
+          cd ..
+           ls
+          cd ..
+           ls
+          cd ..
