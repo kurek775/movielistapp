@@ -9,5 +9,7 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
+          cd ..
+          cd server
           npm i
           npm run dev
