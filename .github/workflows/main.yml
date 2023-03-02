@@ -7,15 +7,9 @@ jobs:
   install-dependencies:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Directory
-        run: |
-          ls
-          if [ ! -d "server" ]; then
-            echo "Error: 'server' directory not found"
-            exit 1
-          fi
-
       - name: Install Dependencies
         run: |
+          cd ..
+          cd ..
           cd server
           npm install
