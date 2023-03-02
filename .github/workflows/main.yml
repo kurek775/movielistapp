@@ -12,8 +12,9 @@ jobs:
         
           cd ..
           cd ..
-            echo "Contents of current directory:"
-          ls
+        
           cd movielistapp
+              echo "Contents of current directory:"
+          ls
           cd client
           npm install
