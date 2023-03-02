@@ -28,7 +28,8 @@ const CreateMovielist: React.FC<CreateMovielistProps> = () => {
                 owner: user.id,
                 ownerName: user.name,
                 movies: [],
-                thread: []
+                thread: [],
+                likes: []
             }),
         })
 

@@ -8,7 +8,8 @@ const FilmListSchema = new Schema({
    owner: String,
    ownerName: String,
    movies: Array,
-   thread: Array
+   thread: Array,
+   rating: Array
 });
 
 const FilmListModel = mongoose.model('Filmlist', FilmListSchema);

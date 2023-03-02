@@ -7,7 +7,8 @@ export async function createFilmListController(req: Request, res: Response) {
         owner: req.body.owner,
         ownerName: req.body.ownerName,
         movies: req.body.movies,
-        thread: req.body.thread
+        thread: req.body.thread,
+        rating: req.body.rating
       });
        const createdList =  await newFilmList.save();
        res.json(createdList);

@@ -51,19 +51,67 @@ const AllMovielists: React.FC<AllMovielistsProps> = () => {
 
         const data = await response.json()
         setList(data)
+
     }
+
+    async function handleRating(event: React.MouseEvent, id: Number, val: Boolean) {
+        event.preventDefault()
+
+        const response = await fetch('http://localhost:5000/api/like', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                rating: {
+                    val: val,
+                    author: user.name
+                },
+
+                id: id
+            }),
+        })
+
+        const data = await response.json()
+        setList(data)
+    }
+
+    function displayRat(ratings: Array<any>, rat: boolean) {
+        let val: number = 0;
+        ratings != undefined
+            ? ratings.map((ratings: { val: boolean }) => { ratings.val == rat ? val++ : null })
+            : null;
+
+        return val
+    }
+
+    function checkRat(ratings: Array<any>, rat: boolean) {
+       const current: any =  ratings.filter((ratings: { author: string, val: boolean }) => ratings.author == user.name 
+        )
+      current[0] != undefined ? (rat == current[0].val ? rat= true : rat= false) : rat=false
+        return rat
+    }
+
     useEffect(() => {
 
         getMyMovielists();
+
 
     }, []);
 
 
     return (<div>
-        {list != null ? list.map((list: { name: string, _id: number, movies: any, ownerName: string, thread: any }) =>
+        {list != null ? list.map((list: { name: string, _id: number, movies: any, ownerName: string, thread: any, rating: any }) =>
             <Card key={list._id}>
                 <Card.Header><h3>{list.name}</h3><p>autor : {list.ownerName}</p></Card.Header>
                 <Card.Body>{list.movies.map((movies: { name: string, url: string, id: number }) => <p key={movies.id}><a href={movies.url}>{movies.name}</a></p>)}
+                    <Card.Text> + {displayRat(list.rating, true)}</Card.Text>
+                    <Card.Text> - {displayRat(list.rating, false)}</Card.Text>
+
+                    <Button onClick={(e) => handleRating(e, list._id, true)} disabled={checkRat(list.rating, true)} className="w-100" type="submit">+</Button>
+                    <Button onClick={(e) => handleRating(e, list._id, false)} disabled={checkRat(list.rating, false)} className="w-100" type="submit">-</Button>
+
+
                 </Card.Body>
                 <Card.Footer>
                     <Card.Title>Komentáře</Card.Title>
