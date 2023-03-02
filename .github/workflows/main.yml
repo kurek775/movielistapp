@@ -9,7 +9,13 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
+          echo "Contents of current directory:"
+          ls
           cd ..
+           echo "Contents of current directory:"
+          ls
           cd ..
-          cd server
+           echo "Contents of current directory:"
+          ls
+          cd client
           npm install
