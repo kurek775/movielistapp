@@ -10,5 +10,9 @@ jobs:
       - name: Install Dependencies
         run: |
           ls
+          cd ..
+          ls
+          cd ..
+          ls
           cd movielistapp
           ls
