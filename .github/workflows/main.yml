@@ -9,12 +9,9 @@ jobs:
     steps:
       - name: Install Dependencies
         run: |
-          ls
           cd ..
-          ls
           cd ..
-          ls
           cd movielistapp
-          ls
+          cd movielistapp
           cd movielistapp
           ls
