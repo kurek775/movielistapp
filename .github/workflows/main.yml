@@ -14,6 +14,7 @@ jobs:
           cd ..
         
           cd movielistapp
+          cd movielistapp
               echo "Contents of current directory:"
           ls
           cd client
