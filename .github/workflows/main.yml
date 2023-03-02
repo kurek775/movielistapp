@@ -11,6 +11,7 @@ jobs:
         run: |
           echo "Contents of current directory:"
           ls
-          cd movielistapp
+          
+          
           cd client
           npm install
