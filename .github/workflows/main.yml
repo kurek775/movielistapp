@@ -2,10 +2,10 @@ on:
   push:
     branches:
     - master
-
+defaults:
+   run:
+    working-directory: movielistapp
 jobs:
-  run:
-  working-directory: movielistapp
   install-dependencies:
     runs-on: ubuntu-latest
     steps:
