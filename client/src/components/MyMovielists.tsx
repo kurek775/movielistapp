@@ -7,7 +7,8 @@ interface MyMovielistsProps {
     movieId: number,
     movieName: string,
     moviePoster: string,
-    movieURL: string
+    movieURL: string,
+    viewmode: boolean
 }
 
 const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
@@ -43,7 +44,7 @@ const MyMovielists: React.FC<MyMovielistsProps> = (MyMovielistsProps) => {
     return (
         <div>
             {userlist != undefined ? userlist.map((list: { name: string , _id: number, movies: any}) =>             
-                <Movielist movieName={MyMovielistsProps.movieName} moviePoster={MyMovielistsProps.moviePoster} movieURL={MyMovielistsProps.movieURL} size={list.movies.length} name={list.name} movieId={MyMovielistsProps.movieId} listId={list._id} ></Movielist>
+                <Movielist key={list._id} movie={list.movies} viewmode = {MyMovielistsProps.viewmode} movieName={MyMovielistsProps.movieName} moviePoster={MyMovielistsProps.moviePoster} movieURL={MyMovielistsProps.movieURL} size={list.movies.length} name={list.name} movieId={MyMovielistsProps.movieId} listId={list._id} ></Movielist>
             ) : null}
         </div>);
 }

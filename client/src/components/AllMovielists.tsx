@@ -1,6 +1,8 @@
 import { useState, useEffect, useContext } from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Accordion } from "react-bootstrap";
 import { AuthContext } from "../context/AuthContext";
+import { FiThumbsUp, FiThumbsDown } from "react-icons/fi";
+import { HiUser } from "react-icons/hi";
 interface AllMovielistsProps {
 
 }
@@ -8,7 +10,7 @@ interface AllMovielistsProps {
 const AllMovielists: React.FC<AllMovielistsProps> = () => {
 
     // view all movielists saved in our db + you can comment them
-    // TODO : add like, remove my comment
+
     const [id, setId]: any = useState();
     const [comment, setComment] = useState('');
     const [list, setList]: any = useState();
@@ -85,9 +87,9 @@ const AllMovielists: React.FC<AllMovielistsProps> = () => {
     }
 
     function checkRat(ratings: Array<any>, rat: boolean) {
-       const current: any =  ratings.filter((ratings: { author: string, val: boolean }) => ratings.author == user.name 
+        const current: any = ratings.filter((ratings: { author: string, val: boolean }) => ratings.author == user.name
         )
-      current[0] != undefined ? (rat == current[0].val ? rat= true : rat= false) : rat=false
+        current[0] != undefined ? (rat == current[0].val ? rat = true : rat = false) : rat = false
         return rat
     }
 
@@ -102,32 +104,48 @@ const AllMovielists: React.FC<AllMovielistsProps> = () => {
     return (<div>
         {list != null ? list.map((list: { name: string, _id: number, movies: any, ownerName: string, thread: any, rating: any }) =>
             <Card key={list._id}>
-                <Card.Header><h3>{list.name}</h3><p>autor : {list.ownerName}</p></Card.Header>
+                <Card.Header><h3>{list.name}</h3><p><HiUser /> {list.ownerName}</p>    <div key={list._id}><Button onClick={(e) => handleRating(e, list._id, true)} disabled={checkRat(list.rating, true)} type="submit">
+                    {displayRat(list.rating, true)}
+                    <FiThumbsUp />
+                </Button>
+                    <Button onClick={(e) => handleRating(e, list._id, false)} disabled={checkRat(list.rating, false)} type="submit">
+                        {displayRat(list.rating, false)}
+                        <FiThumbsDown />
+                    </Button>
+                </div></Card.Header>
                 <Card.Body>{list.movies.map((movies: { name: string, url: string, id: number }) => <p key={movies.id}><a href={movies.url}>{movies.name}</a></p>)}
-                    <Card.Text> + {displayRat(list.rating, true)}</Card.Text>
-                    <Card.Text> - {displayRat(list.rating, false)}</Card.Text>
 
-                    <Button onClick={(e) => handleRating(e, list._id, true)} disabled={checkRat(list.rating, true)} className="w-100" type="submit">+</Button>
-                    <Button onClick={(e) => handleRating(e, list._id, false)} disabled={checkRat(list.rating, false)} className="w-100" type="submit">-</Button>
 
 
                 </Card.Body>
                 <Card.Footer>
-                    <Card.Title>Komentáře</Card.Title>
-                    {list.thread.map((thread: { comment: string, author: string, _id: number }) =>
-                        <div className="comment" key={thread._id}>
-                            <p className="comment-text">{thread.comment}</p>
-                            <p className="comment-author">{thread.author}</p>
-                        </div>)}
+
+                    <Accordion defaultActiveKey="1">
+                        <Accordion.Item eventKey="0">
+                            <Accordion.Header>     Komentáře</Accordion.Header>
+                            <Accordion.Body>
+                                {list.thread.map((thread: { comment: string, author: string, _id: number }) =>
+                                    <div key={thread._id} className="comment">
+                                        <p className="comment-text" >{thread.comment}</p>
+                                        <p className="comment-author" >{thread.author}</p>
+                                    </div>)}
+
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </Accordion>
                     <Form key={list._id} onSubmit={handleClick}>
                         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                             <Form.Control key={list._id} onChange={(e) => setComment(e.target.value)} as="textarea" rows={3} />
                         </Form.Group>
-                        <Button onClick={(e) => setId(list._id)} disabled={loading} className="w-100" type="submit">
+                        <Button key={list._id} onClick={(e) => setId(list._id)} disabled={loading} type="submit">
                             Přidat komentář
                         </Button>
                     </Form>
+
+
                 </Card.Footer>
+
+
             </Card>
         ) : null}
     </div>);

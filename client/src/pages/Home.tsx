@@ -15,10 +15,6 @@ const Home: React.FC<HomeProps> = () => {
         const token: any = localStorage.getItem('token');
         setUser(jwt_decode(token));
     }, []);
-
-  console.log(user);
-
-
     return (<>
     
        <AllMovielists></AllMovielists>

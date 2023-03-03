@@ -1,7 +1,7 @@
 img{
     width: 100%;
 }
-strong{
+small{
     padding: 5px;
 }
 .movie{
@@ -17,4 +17,18 @@ strong{
 }
 .comment-author{
     text-align: center;
+}
+
+.movie h3{
+    font-size: 20px;
+    text-align: center;
+}
+.movie .genres{
+    margin-top: 10px;
+    height: auto;
+    text-align: center;
+}
+.movie .card-header{
+    height: 100px;
+   
 }

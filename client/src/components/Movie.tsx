@@ -21,9 +21,10 @@ const Movie: React.FC<MovieProps> = (MovieProps) => {
     const handleSave = () => setShow(false);
     return (<Card className="movie">
         <Card.Header><h3>{MovieProps.title}</h3>
-            {MovieProps.genres.map((genre: string | null | undefined) => <strong>{genre}</strong>)}
+            <div className="genres">{MovieProps.genres.map((genre: string | null | undefined) => <small>{genre}</small>)}</div>
         </Card.Header>
         <Card.Body>
+
             <img src={MovieProps.img}></img>
         </Card.Body>
         <Button onClick={handleShow}>Přidat do filmlistu</Button>
@@ -31,7 +32,7 @@ const Movie: React.FC<MovieProps> = (MovieProps) => {
             <Modal.Header closeButton>
                 <Modal.Title>Do kterého filmlistu chcete film přidat ? </Modal.Title>
             </Modal.Header>
-            <Modal.Body><MyMovielists movieName={MovieProps.title} moviePoster={MovieProps.img} movieURL={MovieProps.url} movieId={MovieProps.id}></MyMovielists></Modal.Body>
+            <Modal.Body><MyMovielists viewmode={false} movieName={MovieProps.title} moviePoster={MovieProps.img} movieURL={MovieProps.url} movieId={MovieProps.id}></MyMovielists></Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
                     Zrušit

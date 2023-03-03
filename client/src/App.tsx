@@ -10,6 +10,7 @@ import {
   Route,
 
 } from "react-router-dom";
+import { HiUserCircle } from "react-icons/hi";
 import { Routes } from "react-router";
 import { AuthContext } from "./context/AuthContext";
 import { useState } from "react";
@@ -37,11 +38,12 @@ function App() {
             <Navbar bg="primary" variant="dark" className="p-2 d-flex justify-content-between">
               { user != null ?
                 <Nav>
-                  <Navbar.Text>Přihlášen jako: {user.name}</Navbar.Text>
+                  
                   <Nav.Link as={Link} to="/home">Domů</Nav.Link>
                   <Nav.Link as={Link} to="/mymovielists">Mé filmlisty</Nav.Link>
                   <Nav.Link as={Link} to="/movies">Filmy</Nav.Link>
                   <Nav.Link as={Link} to="/" onClick={handleLogout}>Odhlášení</Nav.Link>
+                  <Navbar.Text><HiUserCircle/>{user.name}</Navbar.Text>
                 </Nav>
                 
                 : <Nav>
