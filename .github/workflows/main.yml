@@ -12,9 +12,22 @@ jobs:
         uses: actions/setup-node@v3
         with: 
           node-version: 16.x
-      - name: Install NPM Dependencies
+      - name: Install NPM Dependencies - on server
         run: |
          cd server
          npm i
+      - name: Install NPM Dependencies - on client
+        run: |
+         cd client
+         npm i
+      - name: start - server
+        run: |
+         cd server
+         npm run dev
+      - name: start - client
+        run: |
+         cd client
+         npm run dev
+         
       
 
