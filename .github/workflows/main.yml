@@ -2,14 +2,24 @@ on:
   push:
     branches:
     - master
-defaults:
-   run:
-    working-directory: /movielistapp
 jobs:
   install-dependencies:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16.x
+      - name: Install NPM Dependencies - on server
         run: |
-          ls
+         cd server
+         npm i
+      - name: Install NPM Dependencies - on client
+        run: |
+         cd client
+         npm i
+         
+      
 
