@@ -13,6 +13,8 @@ jobs:
         with: 
           node-version: 16.x
       - name: Install NPM Dependencies
-        run: ls
+        run: |
+         cd server
+         npm i
       
 
