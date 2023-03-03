@@ -2,14 +2,13 @@ on:
   push:
     branches:
     - master
-defaults:
-   run:
-    working-directory: /movielistapp
 jobs:
   install-dependencies:
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies
-        run: |
-          ls
+      - name: Install node 16
+        uses: actions/setup-node@v3
+        with: 
+          node-version: 16.x
+      
 
