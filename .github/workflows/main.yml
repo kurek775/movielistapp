@@ -4,7 +4,7 @@ on:
     - master
 defaults:
    run:
-    working-directory: movielistapp
+    working-directory: /movielistapp
 jobs:
   install-dependencies:
     runs-on: ubuntu-latest
