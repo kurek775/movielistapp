@@ -20,10 +20,6 @@ jobs:
         run: |
          cd client
          npm i
-      - name: start - server
-        run: |
-         cd server
-         npm run dev
       - name: start - client
         run: |
          cd client
