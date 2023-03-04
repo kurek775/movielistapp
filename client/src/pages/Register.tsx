@@ -2,6 +2,7 @@ import { Card, Alert } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {useState} from 'react'
+import { IoMdCreate } from "react-icons/io";
 interface RegisterProps {
     
 }
@@ -36,11 +37,11 @@ const Register: React.FC<RegisterProps> = () => {
     return (  <>
         <Card>
           <Card.Body>
-            <h2 className="text-center mb-4">Sign Up</h2>
+            <h2 className="text-center mb-4">Registrace</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
             <Form.Group id="name">
-                <Form.Label>Name</Form.Label>
+                <Form.Label>Jméno</Form.Label>
                 <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} required />
               </Form.Group>
               <Form.Group id="email">
@@ -48,19 +49,17 @@ const Register: React.FC<RegisterProps> = () => {
                 <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)}  required />
               </Form.Group>
               <Form.Group id="password">
-                <Form.Label>Password</Form.Label>
+                <Form.Label>Heslo</Form.Label>
                 <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
               </Form.Group>
          
-              <Button disabled={loading} className="w-100" type="submit">
-                Sign Up
+              <Button disabled={loading} type="submit">
+                Registruj se <IoMdCreate/>
               </Button>
             </Form>
           </Card.Body>
         </Card>
-        <div className="w-100 text-center mt-2">
-         
-        </div>
+      
       </>  );
 }
  

@@ -2,14 +2,15 @@ import { Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useState, useRef, useContext } from 'react'
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { AiOutlineLogin } from "react-icons/ai";
 interface LoginProps {
 
 }
 
 const Login: React.FC<LoginProps> = () => {
-  const {user, setUser}: any = useContext(AuthContext);
+  const { user, setUser }: any = useContext(AuthContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const Login: React.FC<LoginProps> = () => {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4">Log In</h2>
+          <h2 className="text-center mb-4">Přihlášení</h2>
 
           <Form onSubmit={handleSubmit}>
             <Form.Group id="email">
@@ -50,21 +51,19 @@ const Login: React.FC<LoginProps> = () => {
               <Form.Control type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             </Form.Group>
             <Form.Group id="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Heslo</Form.Label>
               <Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
             </Form.Group>
-            <Button disabled={loading} className="w-100" type="submit">
-              Log In
-            </Button>
+            <Form.Group>
+              <Button disabled={loading} type="submit">
+                Přihlášení <AiOutlineLogin/>
+              </Button>
+            </Form.Group>
           </Form>
-          <div className="w-100 text-center mt-3">
 
-          </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
 
-      </div>
     </>
 
   );

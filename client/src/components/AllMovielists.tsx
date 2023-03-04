@@ -104,7 +104,7 @@ const AllMovielists: React.FC<AllMovielistsProps> = () => {
     return (<div>
         {list != null ? list.map((list: { name: string, _id: number, movies: any, ownerName: string, thread: any, rating: any }) =>
             <Card key={list._id}>
-                <Card.Header><h3>{list.name}</h3><p><HiUser /> {list.ownerName}</p>    <div key={list._id}><Button onClick={(e) => handleRating(e, list._id, true)} disabled={checkRat(list.rating, true)} type="submit">
+                <Card.Header><h3>{list.name}</h3><p><HiUser />{list.ownerName}</p><div key={list._id}><Button onClick={(e) => handleRating(e, list._id, true)} disabled={checkRat(list.rating, true)} type="submit">
                     {displayRat(list.rating, true)}
                     <FiThumbsUp />
                 </Button>
