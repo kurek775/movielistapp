@@ -24,7 +24,6 @@ const Movie: React.FC<MovieProps> = (MovieProps) => {
             <div className="genres">{MovieProps.genres.map((genre: string | null | undefined) => <small>{genre}</small>)}</div>
         </Card.Header>
         <Card.Body>
-
             <img src={MovieProps.img}></img>
         </Card.Body>
         <Button onClick={handleShow}>Přidat do filmlistu</Button>
